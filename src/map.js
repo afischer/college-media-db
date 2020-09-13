@@ -1,32 +1,5 @@
-// import a CSS module
-import publications from '../data/pubDB.json';
+import pubGeoJSON from '../data/pubDB.json';
 import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
-
-
-const coordPairs = new Set();
-
-const pubGeoJSON = {
-  type: 'geojson',
-  data: {
-    type: "FeatureCollection",
-    features: publications.map(pub => {
-      let coordinates = [pub.Lon, pub.Lat];
-      // todo: more robust way for multiple pubs at one location
-      if (coordPairs.has(pub.Lon + pub.Lat)) {
-        coordinates = [parseFloat(pub.Lon) + .0001 + (Math.random() * 0.0005), parseFloat(pub.Lat) + .0001 + (Math.random() * 0.0005)]
-      }
-      coordPairs.add(coordinates[0] + coordinates[1])
-      return {
-        type: "Feature",
-        properties: pub,
-        geometry: {
-          type: "Point",
-          coordinates
-        }
-      }
-    })
-  }
-}
 
 export default () => {
   console.log(pubGeoJSON);
@@ -34,9 +7,11 @@ export default () => {
   mapboxgl.accessToken = 'pk.eyJ1IjoiYWZpc2NoZXIxNSIsImEiOiJja2YxYmVveTQwcmM5MnhsbmFpZzN0cG12In0.ODgJerfBfyVURmzQhHwR_A';
   const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/light-v10', // stylesheet location
-    center: [-98, 39.5], // starting position [lng, lat]
-    zoom: 3 // starting zoom
+    // style: 'mapbox://styles/mapbox/light-v10', // stylesheet location
+    style: 'mapbox://styles/afischer15/ckf1bkh3y3im619mgu9qlsxu7',
+    // center: [-98, 39.5], // starting position [lng, lat]
+    center: [0, 0],
+    zoom: 4 // starting zoom
   })
 
   map.on('load', function () {
@@ -47,10 +22,11 @@ export default () => {
     //     map.addImage(name, img);
     //   })
     // }
+    console.log('adding');
 
-    map.addSource('pubData', pubGeoJSON);
-
-    // Add a symbol layer
+    map.addSource('pubData', { type: 'geojson', data: pubGeoJSON });
+    console.log('added');
+    // // Add a symbol layer
     map.addLayer({
       'id': 'pubDataPoints',
       // 'type': 'image',
