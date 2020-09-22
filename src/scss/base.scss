@@ -1,0 +1,28 @@
+
+$gray: #d4d4d4;
+$gray-dark: #666;
+
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 800px;
+  margin: auto;
+  // font-family: 'Libre Baskerville', serif;
+  font-family: 'Libre Franklin', sans-serif;  
+
+  /* background: black; */
+}
+
+h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-bottom: .25rem;
+
+  small {
+    font-weight: 400;
+    margin-left: 5px;
+  }
+}
+
+h4 {
+  font-size: 22px;
+}

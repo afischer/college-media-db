@@ -1,0 +1,61 @@
+<% const { pubs } = locals; %>
+
+<html>
+<head>
+  <style>
+
+    circle {
+      cursor: pointer;
+    }
+
+    .tooltip {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      box-shadow: 4px 3px 5px 0px #ddd;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      padding: 10px;
+      pointer-events: none;
+    }
+
+    .tooltip .pub-title {
+      display: flex;
+      line-height: 1rem;
+    }
+
+    .tooltip h3 {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>College Media DB</h1>
+  </header>
+  <main>
+    <div id="map"></div>
+    <div id="pub-list">
+      <% const byState = pubs.reduce((acc, pub) => {
+        if (!acc[pub.state]) acc[pub.state] = [];
+        acc[pub.state].push(pub);
+        return acc;
+      }, {}) %>
+
+      <% Object.entries(byState).forEach(([state, pubList]) => { %>
+        <h3><%= state %> <small><%= pubList.length %> publications</small></h3>
+        <% pubList.forEach(pub => { %>
+            <%- include('partials/publication', {...pub}); %>
+        <% }) %>
+      <%}) %>
+    </div>
+  </main>
+
+  <link rel="stylesheet" href="scss/style.scss"> 
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Libre+Franklin:wght@300;700&display=swap" rel="stylesheet">
+  <script src="./index.js"></script>
+</body>
+
+</html>

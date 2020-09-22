@@ -8,10 +8,10 @@ export default () => {
   // create SVG
   var svg = d3.select("#map")
     .append("svg")
-    .attr('viewBox', '0 0 975 619');;
+    .attr('viewBox', '0 0 975 620');;
 
   // add tooltip and handlers
-  const tooltip = d3.select("#map")
+  const tooltip = d3.select("body")
     .append("div")
     .style("opacity", 0)
     .attr("class", "tooltip")
@@ -42,8 +42,8 @@ export default () => {
       <div class="pub-title">
         <img src="https://logo.clearbit.com/${SchoolUrl}" width="32px" height="32px" />
         <div>
-          <h3><em>${name}</em></h3>
-          ${university} ${school ? `(${school})` : ''}
+          <h3>${name}</h3>
+          <span class="university">${university} ${school}</span>
         </div>
       </div>
       <p> Other info will go here! </p>
@@ -99,7 +99,7 @@ export default () => {
 
   const zoom = d3.zoom()
     .scaleExtent([1, 50])
-    .translateExtent([[0, 0], [975, 619]])
+    .translateExtent([[0, 0], [975, 620]])
     .on("zoom", handleZoom);
 
   svg.call(zoom);
