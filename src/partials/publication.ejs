@@ -1,8 +1,48 @@
+<% const {url, wordmarkUrl, name, university, school, donateUrl, archiveUrl, twUrl, fbUrl, igUrl, ytUrl } = locals; %>
+
 <div class="publication">
-  <h4>
-    <%= locals.name %>
-  </h4>
-  <span class="university">
-    <%= locals.university%> <%= locals.school %>
-  </span>
+  <div class="pub-header">
+    <div>
+      <% if (url) { %><a href="<%= url %>"><% }%>
+        <h4>
+          <% if (wordmarkUrl) { %>
+            <img height="25px" src="<%= wordmarkUrl %>" alt="<%= name %>">
+          <% } else { %>
+            <%= name %>
+          <% } %>
+        </h4>
+      <% if (url) { %></a><% }%>
+      <div class="university">
+        <%= university%> <%= school %>
+      </div>
+    </div>
+    <div class="social-links">
+      <% if (fbUrl) { %><a href="<%= fbUrl %>"><%- include('../img/facebook.svg'); %></a><% }%>
+      <% if (twUrl) { %><a href="<%= twUrl %>"><%- include('../img/twitter.svg'); %></a><% }%>
+      <% if (igUrl) { %><a href="<%= igUrl %>"><%- include('../img/instagram.svg'); %></a><% }%>
+      <% if (ytUrl) { %><a href="<%= ytUrl %>"><%- include('../img/youtube.svg'); %></a><% }%>
+    </div>
+  </div>
+  
+  <div class="pub-body">
+    <div class="pub-info">
+      <table>
+        <tr>
+          <td>foo</td>
+          <td>bar</td>
+        </tr>
+      </table>
+    </div>
+    <div class="pub-links">
+      <% if (donateUrl) { %>
+        <a href="<%= donateUrl %>" rel="noopener noreferrer" target="_blank">Donate&nbsp;&#10095;</a>
+      <% } %>
+      <% if (archiveUrl) { %>
+        <a href="<%= archiveUrl %>" rel="noopener noreferrer" target="_blank">Archives&nbsp;&#10095;</a>
+      <% } %>
+      <% if (url) { %>
+        <a href="<%= url %>" rel="noopener noreferrer" target="_blank">Website&nbsp;&#10095;</a>
+      <% } %>
+    </div>
+  </div>
 </div>

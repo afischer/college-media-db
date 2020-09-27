@@ -37,16 +37,15 @@ export default () => {
   }
 
   const getTooltipHtml = data => {
-    const { name, university, school, SchoolUrl } = data;
+    const { name, university, school, url, schoolUrl } = data;
     return `
       <div class="pub-title">
-        <img src="https://logo.clearbit.com/${SchoolUrl}" width="32px" height="32px" />
+        <img src="https://logo.clearbit.com/${url || schoolUrl}" width="32px" height="32px" />
         <div>
           <h3>${name}</h3>
           <span class="university">${university} ${school}</span>
         </div>
       </div>
-      <p> Other info will go here! </p>
       `
   }
 

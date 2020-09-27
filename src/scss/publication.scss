@@ -1,8 +1,33 @@
 .publication {
   max-width: 600px;
   margin: 15px auto;
+  padding: 15px;
+
   border: 1px solid #eee;
-  padding: 5px;
+  border-bottom: none;  
+  box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+  border-radius: 2px;
+
+  h4 {
+    margin: 0;
+    margin-bottom: 5px;
+  }
+
+  .pub-header, .pub-body {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .social-links {
+    svg {
+      fill: $gray;
+    }
+
+    svg:hover {
+      fill: $gray-dark;
+    }
+  }
+  
 }
 
 .university {
