@@ -13,6 +13,11 @@
     margin-bottom: 5px;
   }
 
+  .university {
+    color: $gray-dark;
+    font-size: 14px;
+  }
+
   .pub-header, .pub-body {
     display: flex;
     justify-content: space-between;
@@ -27,10 +32,27 @@
       fill: $gray-dark;
     }
   }
-  
-}
 
-.university {
-  color: $gray-dark;
-  font-size: 14px;
+  .pub-links {
+    margin-top: auto;
+
+    a:not(:last-child) {
+      padding-right: 10px
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  
+  td:first-child {
+    // text-align: end;
+    color: $gray-dark;
+  }
+
+  td:last-child {
+    padding-left: 15px;
+  }
 }

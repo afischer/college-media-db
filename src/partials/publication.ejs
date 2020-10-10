@@ -1,4 +1,4 @@
-<% const {url, wordmarkUrl, name, university, school, donateUrl, archiveUrl, twUrl, fbUrl, igUrl, ytUrl } = locals; %>
+<% const {url, wordmarkUrl, name, university, school, donateUrl, archiveUrl, twUrl, fbUrl, igUrl, ytUrl, founded, printFormat, printFreq, printCirc } = locals; %>
 
 <div class="publication">
   <div class="pub-header">
@@ -27,10 +27,10 @@
   <div class="pub-body">
     <div class="pub-info">
       <table>
-        <tr>
-          <td>foo</td>
-          <td>bar</td>
-        </tr>
+        <% if (founded) { %><tr><td>Founded</td><td><%= founded %></td></tr><% } %>
+        <% if (printFormat) { %><tr><td>Format</td><td><%= printFormat %></td></tr><% } %>
+        <% if (printCirc) { %><tr><td>Circulation</td><td><%= printCirc %></td></tr><% } %>
+        <% if (printFreq) { %><tr><td>Distribution</td><td><%= printFreq %></td></tr><% } %>
       </table>
     </div>
     <div class="pub-links">
