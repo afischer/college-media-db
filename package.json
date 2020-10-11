@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "watch": "parcel src/index.ejs",
-    "build": "parcel build src/index.ejs",
+    "build": "parcel build src/index.ejs --public-url ./",
+    "deploy": "npm run build && push-dir --dir=dist --branch=gh-pages --cleanup --verbose",
     "update-pub-db": "node bin/updateDb.js"
   },
   "keywords": [],
@@ -16,6 +17,7 @@
     "d3": "^6.1.1",
     "d3-geo": "^2.0.1",
     "mapbox-gl": "^1.12.0",
+    "push-dir": "^0.4.1",
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {

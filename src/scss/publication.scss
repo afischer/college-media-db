@@ -1,9 +1,5 @@
-.pub-list {
-  max-width: 600px;
-
-  h2 {
+#pub-list h2 {
     font-size: 1.17em;
-  }
 }
 
 .publication {
@@ -28,9 +24,17 @@
   .pub-header, .pub-body {
     display: flex;
     justify-content: space-between;
+
+    @media only screen and (max-width: 600px) { 
+      flex-direction: column;
+
+      & > *:nth-child(2) {
+        margin-top: 10px;
+      }
+    }
   }
 
-  .pub-header a {
+  .masthead-link a {
     border-bottom: 1px solid #000;
     margin-bottom: 5px;
   }
@@ -55,7 +59,7 @@
 
   table {
     border-collapse: collapse;
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 10px;
   }
   
@@ -66,5 +70,18 @@
 
   td:last-child {
     padding-left: 15px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .tooltip {
+    left: 0 !important;
+    top: auto !important;
+    bottom: 0;
+    width: 100%;
+  }
+
+  #pub-list {
+    margin: 0 5px;
   }
 }
