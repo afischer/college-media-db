@@ -1,5 +1,12 @@
-.publication {
+.pub-list {
   max-width: 600px;
+
+  h2 {
+    font-size: 1.17em;
+  }
+}
+
+.publication {
   margin: 15px auto;
   padding: 15px;
 
@@ -8,9 +15,9 @@
   box-shadow: 0 2px 2px rgba(0,0,0,0.1);
   border-radius: 2px;
 
-  h4 {
+  h3 {
+    font-size: 1.5em;
     margin: 0;
-    margin-bottom: 5px;
   }
 
   .university {
@@ -21,6 +28,11 @@
   .pub-header, .pub-body {
     display: flex;
     justify-content: space-between;
+  }
+
+  .pub-header a {
+    border-bottom: 1px solid #000;
+    margin-bottom: 5px;
   }
 
   .social-links {

@@ -6,13 +6,13 @@
   "scripts": {
     "watch": "parcel src/index.ejs",
     "build": "parcel build src/index.ejs",
-    "__update-pub-db": "curl -L https://docs.google.com/spreadsheets/d/1O31IISGSBz9md3m9mS_hHHyIYHA5ewGSQI6H7HJWvqA/export?format=csv | csv2geojson --lat lat --lon lon | dirty-reproject --forward albersUsa > data/pubDB.json",
-    "update-pub-db": "curl -L https://docs.google.com/spreadsheets/d/1O31IISGSBz9md3m9mS_hHHyIYHA5ewGSQI6H7HJWvqA/export?format=csv | csv2geojson --lat lat --lon lon > data/pubDB.json"
+    "update-pub-db": "node bin/updateDb.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.20.0",
     "d3": "^6.1.1",
     "d3-geo": "^2.0.1",
     "mapbox-gl": "^1.12.0",

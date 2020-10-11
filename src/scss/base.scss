@@ -1,6 +1,8 @@
-
+$white: #fff;
 $gray: #d4d4d4;
 $gray-dark: #666;
+$orange: #db7851;
+
 
 body {
   margin: 0;
@@ -13,7 +15,7 @@ body {
   /* background: black; */
 }
 
-h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
   font-weight: 700;
   margin-bottom: .25rem;
 
@@ -23,20 +25,24 @@ h3, h4, h5, h6 {
   }
 }
 
-h4 {
-  font-size: 22px;
-}
-
 a, a:visited {
   color: #000;
   text-decoration: none;
   display: inline-block;
-  
-  h4 {
-    border-bottom: 1px solid $gray-dark;
+}
 
-    img {
-      padding-bottom: 2px;
-    }
-  }
+.header-text {
+  padding-top: 5px;
+  text-align: center; 
+}
+
+.beta-tag {
+  color: $white;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  background-color: $orange;
+  padding: 5px;
+  vertical-align: middle;
 }

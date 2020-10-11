@@ -37,15 +37,24 @@ export default () => {
   }
 
   const getTooltipHtml = data => {
-    const { name, university, school, url, schoolUrl } = data;
-    return `
-      <div class="pub-title">
-        <img src="https://logo.clearbit.com/${url || schoolUrl}" width="32px" height="32px" />
-        <div>
-          <h3>${name}</h3>
-          <span class="university">${university} ${school}</span>
+    console.log(data);
+    const { name, university, publications } = data;
+    const pubHTML = publications.map(pub => {
+      const { name, school, url, schoolUrl } = pub;
+      // TODO: use logo url instead of clearbit
+      return `
+        <div class="pub-title">
+          <img src="https://logo.clearbit.com/${url || schoolUrl}" width="32px" height="32px" />
+          <div>
+            <h3>${name}</h3>
+            ${school ? `<span class="university">${school}</span>` : ''}   
+          </div>
         </div>
-      </div>
+      `
+    }).join('')
+    return `
+      <span class="university">${university}</span>
+      ${pubHTML}
       `
   }
 

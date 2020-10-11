@@ -1,7 +1,13 @@
-<% const { pubs } = locals; %>
-
-<html>
+<% const { properties } = locals; %>
+<% const pubs = properties.flatMap(({publications}) => publications); %>
+<% const tagline = `Cataloguing ${pubs.length} publications from ${properties.length} colleges and universities.` %>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <title>College Media Database</title>
+  <meta name="description" content="<%= tagline %>">
+
   <style>
 
     circle {
@@ -22,19 +28,27 @@
 
     .tooltip .pub-title {
       display: flex;
+      align-items: center;
       line-height: 1rem;
+      padding-top: 5px;
     }
 
     .tooltip h3 {
       margin: 0;
+    }
+
+    .tooltip img {
+      margin-right: 5px;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>College Media DB</h1>
-    Tracking <%= pubs.length %> publications from XX colleges and universities.
+    <div class="header-text">
+      <h1>College Media DB <span class="beta-tag">Beta!</span></h1>
+      <p><%= tagline %></p>
+    </div>
   </header>
   <main>
     <div id="map"></div>
@@ -46,7 +60,7 @@
       }, {}) %>
 
       <% Object.entries(byState).forEach(([state, pubList]) => { %>
-        <h3><%= state %> <small><%= pubList.length %> publications</small></h3>
+        <h2><%= state %> <small><%= pubList.length %> publications</small></h2>
         <% pubList.forEach(pub => { %>
             <%- include('partials/publication', {...pub}); %>
         <% }) %>
