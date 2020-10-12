@@ -53,6 +53,7 @@
   </header>
   <main>
     <div id="map"></div>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdIhgy3Ss5qh1D7-i7meSv0UHHi7_i6v30C1GU-E5NEArgQNw/viewform" class="center"><strong>Add or edit an entry</strong>&nbsp;&#10095;</a>
     <div id="pub-list">
       <% const byState = pubs.reduce((acc, pub) => {
         if (!acc[pub.state]) acc[pub.state] = [];
@@ -68,7 +69,9 @@
       <%}) %>
     </div>
   </main>
-
+  <footer>
+    Built by <a href="https://andrewfischer.me/">Andrew Fischer</a>. Follow me on <a href="https://twitter.com/ndrewfischer">twitter</a>.
+  </footer>
   <link rel="stylesheet" href="scss/style.scss"> 
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Libre+Franklin:wght@300;700&display=swap" rel="stylesheet">
   <script src="./index.js"></script>

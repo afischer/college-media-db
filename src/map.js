@@ -37,7 +37,6 @@ export default () => {
   }
 
   const getTooltipHtml = data => {
-    console.log(data);
     const { name, university, publications } = data;
     const pubHTML = publications.map(pub => {
       const { name, school, url, schoolUrl } = pub;
